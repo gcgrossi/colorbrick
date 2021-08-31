@@ -1,7 +1,7 @@
 <img src="static/colorbrick_Cover.png">
 
 # colorbrick
-A tiny production-ready webapp built in Python Flask .🌶 Primary color analysis in images with OpenCV and Scikit-image.
+A tiny production-ready webapp built in Python Flask 🌶 Primary color analysis in images with OpenCV and Scikit-image.
 
 Built on top of the color detection technique explained in this article:
 
