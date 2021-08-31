@@ -1,7 +1,7 @@
 <img src="static/colorbrick_Cover.png">
 
 # colorbrick
-A production-ready webapp built in Python Flask .🌶 Primary color analysis in images with OpenCV and Scikit-image.
+A tiny production-ready webapp built in Python Flask .🌶 Primary color analysis in images with OpenCV and Scikit-image.
 
 Built on top of the color detection technique explained in this article:
 
@@ -39,6 +39,16 @@ the files ```requirements.txt``` and ```app.yaml``` are configured for correct d
 Accepts upload of an image from the disk or direct access to the webcam (if on mobile).
 
 <img src="assets/Home_Image.PNG">
+
+### Results page
+
+After processing a Landing page with the analysis report is displayed. The graphs are contructed using
+
+[![](https://img.shields.io/badge/plotly%20js-110354?style=for-the-badge&logo=plotly)]()
+
+<img src="assets/result.PNG">
+
+<img src="assets/result_1.PNG">
 
 
 
