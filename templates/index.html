@@ -1,0 +1,90 @@
+{% extends "base.html" %}
+
+{% block head %}
+{%- endblock head %}
+
+{% block content %}
+<body style="background-image: url('/static/hygenius.png');background-repeat: no-repeat;background-size: cover;background-color: rgba(255,255,255,0.9); background-blend-mode: lighten;">
+
+<div id="transition" style="height:100%;width:100%;display:none;background-image: url('/static/hygenius.png');background-repeat: no-repeat;background-size: cover;">
+<img src="/static/hygenius.png" alt="Dental Hygenius">
+</div>
+
+<div class="container" style="text-align:center;">
+    <div class="row">
+        <div class="col s12">
+        	   
+        	   <h2 class="indigo-text text-darken-3">Color Detection App</h2>
+        	 
+        	   
+        	   <!--### image input form -->
+        	   <form method="POST" action="" enctype="multipart/form-data">
+                  <div class="file-field input-field">
+                      <div class="card hoverable" style="height:40%; margin-top:5%">
+                          
+                          <!--### card content -->
+                          <div id="card_content_upload" class="card-content center-align" style="height:80%">
+                              <div class="row" style="margin-top:5%;margin-bottom:0%">
+                                  <span class="card-title  indigo-text text-lighten-1">Upload an Image</span>
+                              </div>
+                              <div class="row">
+                                  <input type="file" name="file" onchange="loadFile(event)"> <!--loadFile(event)-->
+                                  <a class="btn-floating waves-effect waves-light  indigo lighten-1"><i class="small material-icons">file_upload</i></a>
+                              </div>
+                          </div>
+                          
+                          <!--### card footer -->
+                          <div class="card-action">
+                              <button onclick="" class="btn-flat waves-effect waves-light indigo darken-3 white-text" type="submit">SUBMIT</button>
+                          </div>
+                     
+                      </div> <!-- card -->
+                  </div> <!-- input field -->
+        	   </form><!-- form -->
+        	          	   
+        	   <!--### card with uploaded image-->
+            <div class="card hoverable" id="image_div" style="display:none">
+            
+            <!--### card content -->
+                <div class="card-content">
+                    <div class="row" style="margin-top:2%;margin-bottom:0%">
+                        <span id="image_name" class="card-title  indigo-text text-lighten-1">Uploaded an Image</span>
+                    </div>
+                    <div class="row">
+                        <img id="output" alt="Uploaded image"/>
+                    </div>      
+                </div> <!-- card content -->
+ 
+            </div> <!-- card -->    	
+        	          	   
+        	          	   
+	   </div> <!-- col -->
+    </div> <!-- row -->
+</div><!-- container -->
+
+</body> 
+{% endblock %}
+
+{% block scripts %}
+<script type="text/javascript">
+  function showTransition() {
+  document.getElementById("transition").setAttribute("style","display:block");
+}
+
+var loadFile = function(event) {
+    var output = document.getElementById("output");
+    output.src = URL.createObjectURL(event.target.files[0]);
+    output.onload = function() {
+      URL.revokeObjectURL(output.src) // free memory
+    }
+    
+    var img_div = document.getElementById("image_div");
+    img_div.setAttribute("style","display:block; text-align:center; margin-top:5%; height:50%; width:100%");
+    output.setAttribute("style" ,"height:50%;margin-top:1%; object-fit:scale-down");
+     
+    document.getElementById("image_name").innerHTML=event.target.files[0].name;
+    
+  };
+
+</script>
+{%- endblock scripts %}

@@ -1,0 +1,68 @@
+{% extends "base.html" %}
+
+<!-- #### Block Content Extension -->
+{% block content %}
+
+
+<div class="container" style="text-align:center;">
+   
+   <div class="row">
+    	<div class="col s12">
+    		<h2> Your Result </h2>
+		</div>
+	</div>
+	
+	<!-- Create a Row with a card view 
+         For each graph that is passed -->
+	{%for g in graphJSON%}
+	
+	<div class="row">
+        <div class="col s12">
+            <div class="card hoverable">
+            
+                <!-- ### Card Content -->
+                <div class="card-content">
+                    <span class="card-title">{{g["name"]}}</span>
+                    <div id="chart_{{ loop.index|string }}" class="chart"></div>            
+                </div>
+                
+                <!-- ### Card Action -->
+                
+                
+            </div><!-- Card -->
+       </div><!-- Col -->
+   </div><!-- Row -->
+   
+    
+   {% endfor %}   
+
+
+
+</div> <!-- Contaier -->
+
+{% endblock %} <!-- End Block Content Extension -->
+
+
+{% block scripts %}
+<script type="text/javascript">
+  {%for g in graphJSON%}
+  var config = {'responsive': true, 'scrollZoom': true};
+  var layout = {};
+  var graphs = {{g["content"] | safe}};
+  Plotly.newPlot("chart_"+{{ loop.index|string }},graphs,layout,config);
+  
+  // update the layout to expand to the available size
+ // when the window is resized
+ 
+    window.onresize = function() {
+        Plotly.relayout("chart_"+{{ loop.index|string }}, {
+            'xaxis.autorange': true,
+            'yaxis.autorange': true
+        });
+    };
+    
+  
+  {% endfor %}
+</script>
+{%- endblock scripts %}
+

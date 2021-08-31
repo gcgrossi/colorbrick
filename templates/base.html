@@ -1,0 +1,40 @@
+<html>
+    <head>
+        <title>Colorbrik - Color Detection App</title>
+        <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
+        
+        <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.6/d3.min.js"></script>
+        
+        <!--Import Google Icon Font-->
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <!-- Compiled and minified CSS -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+        <!--Let browser know website is optimized for mobile-->
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+        <style>
+		i.icon-pink-accent-2 {
+			color: #ff4081;
+		}
+		.logo {
+            background: url('/static/hygenius.png');
+            height: 50px;
+            width: 50px;
+            display: block;
+            /* Other styles here */
+        }
+       </style>
+       
+    {% block head %}
+    {%- endblock head %} 
+    </head>
+    
+    {% block content %}{% endblock %}
+
+    {% block scripts %}
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    {%- endblock scripts %}
+    
+</html>
